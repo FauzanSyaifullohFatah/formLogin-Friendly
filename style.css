@@ -122,3 +122,8 @@ body {
 .form .box-register span button{
   color: rgb(1, 251, 76);
 }
+footer {
+  font-size: 40px;
+  text-decoration: none;
+  color: rgba(245, 245, 245, 0.161);
+}
