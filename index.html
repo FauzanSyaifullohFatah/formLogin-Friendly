@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: sans-serif;
+            color: whitesmoke;
+            background-color: rgb(57, 131, 123);
+            background: linear-gradient(rgb(34, 160, 148) 30%, rgb(12, 71, 65));
+            height: 100vh;
+            gap: 50px;
+        }
+        .form {
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(to right bottom, rgb(34, 160, 148) 20%, rgb(12, 71, 65));
+            width: 90%;
+            max-width: 450px;
+            height: 60vh;
+            border-radius: 50px;
+            box-shadow: 0 0 10px rgb(12, 71, 65);
+        }
+        .box-login {z-index: 2;}
+        .box-register {z-index: 1;}
+        .box-login, .box-register{
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            width: 100%;
+            height: 100%;
+        }
+        .form h2{
+            padding: 30px 0px;
+            font-size: 30px;}
+        .form h2 i {
+            color: rgb(1, 251, 76);
+            font-style: normal;
+        }
+        .form h2 span {font-size: 20px;}
+        .form .input {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .form .input label {
+            transform: translateX(10px) translateY(-28px);
+            color: rgba(17, 34, 51, 0.502);
+            transition: 0.5s all;
+        }
+        .form .input label i {transition: 1s all;}
+        .form .input input {
+            border: 2px solid rgba(255, 255, 255, 0.725);
+            width: 100%;
+            height: 40px;
+            border-radius: 10px;
+            padding-left: 10px;
+            font-size: 20px;
+            background: rgba(255, 255, 255, 0.578);
+            box-shadow: 2px 2px 2px rgb(12, 71, 65) inset, 2px 2px 2px rgb(12, 71, 65);
+            color: rgba(17, 34, 51, 0.502);
+        }
+        .form .input input:focus {
+            outline: none;
+            border: 2px solid rgb(1, 251, 76);
+        }
+        .form .opt {
+            position: relative;
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            width: 100%;
+            gap: 10px;
+        }
+        .form .opt #forgot-pass {
+            position: absolute;
+            left: 0;
+            color: rgba(248, 248, 248, 0.636);
+        }
+        .form .opt label {
+            cursor: pointer;
+            width: fit-content;
+            color: rgba(248, 248, 248, 0.636);
+            transform: none;
+            font-weight: normal;
+        }
+        .form .opt input {width: 20px;cursor: pointer;box-shadow: none;}
+        .form .opt input:focus {outline: none;}
+        .form button {
+            cursor: pointer;
+            background: transparent;
+            border: none;
+            color: whitesmoke;
+            border-bottom: 1px solid transparent;
+        }
+        .form .submit {
+            width: 70%;
+            height: 40px;
+            border-radius: 20px;
+            color: whitesmoke;
+            font-size: 18px;
+            font-weight: bold;
+            background: rgb(26, 187, 74);
+        }
+        .form span {
+            font-size: 14px;
+            color: rgba(248, 248, 248, 0.636);
+        }
+        .form .box-login span button,
+        .form .box-register span button{
+            color: rgb(1, 251, 76);
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <div class="box-login">
+            <h2><i>Login</i><span> - Webdevelop</span></h2>
+            <div class="input">
+                <input type="text" id="username" class="inp">
+                <label for="username"><i class="fa fa-user"></i> Username</label>
+            </div>
+            <div class="input">
+                <input type="password" id="password" class="inp">
+                <label for="password"><i class="fa fa-key"></i> Password</label>
+            </div>
+            <div class="opt">
+                <button id="forgot-pass">lupa password?</button>
+                <label for="remember">Ingat saya</label>
+                <input type="checkbox" id="remember">
+            </div>
+            <button class="submit">Login <i class="fa fa-sign-in"></i></button>
+            <span>belum punya akun? <button id="to-reg">Buat akun</button></span>
+        </div>
+        <div class="box-register">
+            <h2><span>Webdevelop - </span><i>Register</i></h2>
+            <div class="input">
+                <input type="text" id="reg-email" class="inp">
+                <label for="reg-email"><i class="fa fa-envelope"></i> Email</label>
+            </div>
+            <div class="input">
+                <input type="text" id="reg-username" class="inp">
+                <label for="reg-username"><i class="fa fa-user"></i> Username</label>
+            </div>
+            <div class="input">
+                <input type="password" id="reg-password" class="inp">
+                <label for="reg-password"><i class="fa fa-key"></i> Password</label>
+            </div>
+            <button class="submit">Register</button>
+            <span>sudah punya akun? <button id="to-log">Login <i class="fa fa-sign-in"></i></button></span>
+        </div>
+    </div>
+    <script>
+        var boxLog = document.getElementsByClassName("box-login")[0];
+        var boxReg = document.getElementsByClassName("box-register")[0];
+        var toLog = document.getElementById("to-log");
+        var toReg = document.getElementById("to-reg");
+        const input = document.getElementsByClassName("inp");
+
+        for (var i = 0; i < boxReg.children.length; i++){
+            if (i % 2 === 0){
+                boxReg.children[i].style.transform = "translateX(200%)";
+            } else {
+                boxReg.children[i].style.transform = "translateX(-200%)";
+            }
+        }
+        for (var i = 0; i < input.length; i++){
+            input[i].addEventListener("focus", function(){
+                var label = this.nextElementSibling;
+                label.style.transform = "translateX(10px) translateY(-68px)";
+                label.style.color = "whitesmoke";
+                var icon = label.getElementsByTagName("i")[0];
+                icon.style.color = "rgb(1, 251, 76)";
+            })
+            input[i].addEventListener("blur", function(){
+                if (this.value.length == 0){
+                    var label = this.nextElementSibling;
+                    label.style.transform = "translateX(10px) translateY(-28px)";
+                    label.style.color = "rgba(17, 34, 51, 0.502)";
+                    var icon = label.getElementsByTagName("i")[0];
+                    icon.style.color = "rgba(17, 34, 51, 0.502)";
+                }
+            })
+        }
+        toReg.onclick = function(){
+            moveForm(boxReg,boxLog);
+        }
+        toLog.onclick = function(){
+            moveForm(boxLog,boxReg);
+        }
+        function moveForm(boxIn, boxOut){
+            boxIn.style.zIndex = "1";boxOut.style.zIndex = "0";
+            for (var i = 0; i < boxIn.children.length; i++){
+                if (i % 2 === 0){
+                    boxIn.children[i].style.transition = "1s all";
+                    boxIn.children[i].style.transform = "translateX(0%)";
+                    boxIn.children[i].style.filter = "blur(0px)";
+                } else {
+                    boxIn.children[i].style.transition = "1s all";
+                    boxIn.children[i].style.transform = "translateX(0%)";
+                    boxIn.children[i].style.filter = "blur(0px)";
+                }
+            }
+            for (var i = 0; i < boxOut.children.length; i++){
+                if (i % 2 === 0){
+                    boxOut.children[i].style.transition = "1s all";
+                    boxOut.children[i].style.transform = "translateX(200%)";
+                    boxOut.children[i].style.filter = "blur(10px)";
+                } else {
+                    boxOut.children[i].style.transition = "1s all";
+                    boxOut.children[i].style.transform = "translateX(-200%)";
+                    boxOut.children[i].style.filter = "blur(10px)";
+                }
+            }
+        }
+    </script>
+    <footer style="display: flex;flex-direction: column;justify-content: center;align-items: center;gap: 10px;">
+        <span>&copy; 2025 Fauzan Syaifulloh Fatah. All Rights Reserved.</span>
+        <a href="https"><i class="fa fa-youtube"></i></a>
+    </footer>
+</body>
+</html>
