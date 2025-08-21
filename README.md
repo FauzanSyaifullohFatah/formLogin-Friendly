@@ -15,4 +15,6 @@ Didesain dengan tampilan elegan, responsif, dan mudah diintegrasikan ke berbagai
 - CSS
 - JavaScript
 
-Subscribe https://youtube.com/@Webdevelop-id
+Website : https://wedevolv.com
+Youtube : https://youtube.com/@wedevolv.com
+TikTok  : https://tiktok.com/@wedevolv.com
